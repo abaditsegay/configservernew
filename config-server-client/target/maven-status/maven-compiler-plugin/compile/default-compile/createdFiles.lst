@@ -1,0 +1,3 @@
+com/example/configclient/controller/ConfigController.class
+com/example/configclient/config/CorsConfig.class
+com/example/configclient/ConfigClientApplication.class

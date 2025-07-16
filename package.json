@@ -1,0 +1,11 @@
+{
+  "name": "configserver-workspace",
+  "version": "1.0.0",
+  "description": "Spring Cloud Config Server workspace with frontend, backend and client applications",
+  "private": true,
+  "workspaces": [
+    "config-server-frontend",
+    "config-server-backend",
+    "config-server-client"
+  ]
+}

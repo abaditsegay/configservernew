@@ -1,0 +1,34 @@
+# Bootstrap configuration for Spring Cloud Config Client
+# This file is loaded before application.yml/properties
+
+spring:
+  application:
+    name: myapp  # This matches the config server endpoint /myapp/dev/master
+  profiles:
+    active: dev  # This matches the profile in /myapp/dev/master
+  cloud:
+    config:
+      uri: http://localhost:8888
+      label: master  # This matches the label in /myapp/dev/master
+      fail-fast: false
+      retry:
+        initial-interval: 1000
+        max-attempts: 6
+        max-interval: 2000
+        multiplier: 1.1
+
+# Management endpoints for Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    refresh:
+      enabled: true
+    health:
+      show-details: always
+
+# Server port - will be overridden by profiles
+server:
+  port: 9090
