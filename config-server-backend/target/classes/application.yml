@@ -1,0 +1,58 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  
+  # H2 Database Configuration
+  datasource:
+    url: jdbc:h2:mem:configdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+  
+  cloud:
+    config:
+      server:
+        # Use native file system as primary
+        native:
+          search-locations: classpath:/config
+        # Override default profiles
+        profiles:
+          active: native
+  security:
+    user:
+      name: admin
+      password: secret
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,refresh
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+    org.springframework.security: DEBUG

@@ -1,0 +1,40 @@
+# Local application configuration
+# Properties come from Config Server database via /myapp/dev/master endpoint
+
+spring:
+  application:
+    name: myapp
+  profiles:
+    active: dev
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    config:
+      uri: http://localhost:8888
+      label: master
+      fail-fast: false
+
+logging:
+  level:
+    com.example: INFO
+    org.springframework.cloud.config: DEBUG
+    org.springframework.web: INFO
+
+# Application info
+info:
+  app:
+    name: Config Client Application
+    description: Spring Boot client that gets all properties from Config Server database
+    configEndpoint: "/myapp/dev/master"
+
+# Management endpoints for Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    refresh:
+      enabled: true
+    health:
+      show-details: always

@@ -1,0 +1,8 @@
+/Users/samuel/configserverBase/config-server-backend/src/main/java/com/example/configserver/ConfigServerApplication.java
+/Users/samuel/configserverBase/config-server-backend/src/main/java/com/example/configserver/config/CorsConfig.java
+/Users/samuel/configserverBase/config-server-backend/src/main/java/com/example/configserver/config/ProductionSecurityConfig.java
+/Users/samuel/configserverBase/config-server-backend/src/main/java/com/example/configserver/config/SecurityConfig.java
+/Users/samuel/configserverBase/config-server-backend/src/main/java/com/example/configserver/controller/PropertyController.java
+/Users/samuel/configserverBase/config-server-backend/src/main/java/com/example/configserver/entity/ConfigProperty.java
+/Users/samuel/configserverBase/config-server-backend/src/main/java/com/example/configserver/repository/ConfigPropertyRepository.java
+/Users/samuel/configserverBase/config-server-backend/src/main/java/com/example/configserver/service/DataInitializationService.java

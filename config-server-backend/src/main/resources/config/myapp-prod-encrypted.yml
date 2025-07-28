@@ -1,0 +1,42 @@
+# Example configuration file showing how to use encrypted properties
+# This would be stored in your config repository (Git, database, etc.)
+
+# Application configuration for production environment
+app:
+  name: myapp
+  version: 1.0.0
+  description: Production application with encrypted secrets
+
+# Database configuration with encrypted password
+datasource:
+  url: jdbc:postgresql://prod-db-server:5432/myapp
+  username: produser
+  # Encrypted password - will be decrypted automatically by config server
+  password: '{cipher}AQB/NqJMAw2yW7e64dX1cd9VF544N5jqSH6jgFxyw3uBiOtB0Q8w/YoALd3IUhzC3l3wxSdD2Glazq4pGoZkfVE6NYwxqVcp1I8VKyumnGRdxDuQmWdtg6AqMg8EiqLikL8IUD517y18XQ4O8GzN3eTxvFu7grSfMRA1kqwOSVzorBcbM494CZTu2zaBjZ45iFbt7ATGH0R38hGX/lVdSjNs13OoAJa51yfZyeVaeDghbvUP2SAA5EyqzykMCPwMGUZO3q1pnCmGJ3NYPb8HFPQaVWXsdOeUAIJF+V46qq4kchNB/NatOJ8bcW3cRg4KcbgFAx+IZfJ1qF5vFRajmt0ZcZMsyMQq8m4xHdai7OT84iUlIaIvoOdKXnNGKn6W+YrdxtSHZI37EdAt4SM89z8o'
+
+# API Keys and secrets (all encrypted)
+api:
+  third-party:
+    secret-key: '{cipher}AQBgFJapodSkQc4KqqWMaMZwFLdaC3pS3ztFTwXX2CT6tSmbnZn1K2oshYnYgMmThqI3NGDEZ/I5xKNo4SpQyCy3uijjyIE+mmUmBuLeGeOLzELPVQQp5k1cFhJvLoWcP5vIkrnr3bgvWaO+JwaYb5eFS45ptcOuoE6dx7BlrTS2CmTjwblQOu5PmV5oFMwQ+bzoPUkAmhtqobU5we4UCmYCmsfyaWiL298tnrD5/lLcyBPQKtSnSgJE144m3yQ/0PIOf7d/fN+HMWrEHffAIBqrJhIGSkHGD+bNqoFvCjgWaDasbRUH1kLt5XRqceavhB5EV4iP3XuVAHghfPXHVZBEJf35orZxfKEgDpmeYpHs9h7wSca8+G9xCsJYNdXLqZIgtgYSRFZNbD48EfafX6Mc'
+
+# JWT configuration
+jwt:
+  secret: '{cipher}AQBgFJapodSkQc4KqqWMaMZwFLdaC3pS3ztFTwXX2CT6tSmbnZn1K2oshYnYgMmThqI3NGDEZ/I5xKNo4SpQyCy3uijjyIE+mmUmBuLeGeOLzELPVQQp5k1cFhJvLoWcP5vIkrnr3bgvWaO+JwaYb5eFS45ptcOuoE6dx7BlrTS2CmTjwblQOu5PmV5oFMwQ+bzoPUkAmhtqobU5we4UCmYCmsfyaWiL298tnrD5/lLcyBPQKtSnSgJE144m3yQ/0PIOf7d/fN+HMWrEHffAIBqrJhIGSkHGD+bNqoFvCjgWaDasbRUH1kLt5XRqceavhB5EV4iP3XuVAHghfPXHVZBEJf35orZxfKEgDpmeYpHs9h7wSca8+G9xCsJYNdXLqZIgtgYSRFZNbD48EfafX6Mc'
+  expiration: 86400
+
+# Notification service configuration
+notification:
+  email:
+    smtp:
+      password: '{cipher}AQB/NqJMAw2yW7e64dX1cd9VF544N5jqSH6jgFxyw3uBiOtB0Q8w/YoALd3IUhzC3l3wxSdD2Glazq4pGoZkfVE6NYwxqVcp1I8VKyumnGRdxDuQmWdtg6AqMg8EiqLikL8IUD517y18XQ4O8GzN3eTxvFu7grSfMRA1kqwOSVzorBcbM494CZTu2zaBjZ45iFbt7ATGH0R38hGX/lVdSjNs13OoAJa51yfZyeVaeDghbvUP2SAA5EyqzykMCPwMGUZO3q1pnCmGJ3NYPb8HFPQaVWXsdOeUAIJF+V46qq4kchNB/NatOJ8bcW3cRg4KcbgFAx+IZfJ1qF5vFRajmt0ZcZMsyMQq8m4xHdai7OT84iUlIaIvoOdKXnNGKn6W+YrdxtSHZI37EdAt4SM89z8o'
+
+# Non-sensitive configuration (not encrypted)
+logging:
+  level:
+    com.example: DEBUG
+    org.springframework: INFO
+
+# Feature flags
+features:
+  enable-new-ui: true
+  enable-beta-features: false
